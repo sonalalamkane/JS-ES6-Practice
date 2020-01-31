@@ -24,7 +24,7 @@ function addNum(a, b) {
     return new Promise((resolve) => {
         const c = a + b;
         setTimeout(() => {
-            console.log("add = ", c);
+            resolve(c);
         }, 500);;
     });
 }
@@ -32,7 +32,7 @@ function addNum(a, b) {
 function mulNum(q, w) {
     return new Promise((resolve) => {
         setTimeout(() => {
-            console.log("Multiplication = ", q * w);
+            resolve(q * w);
         }, 800);;
     });
 }
@@ -40,7 +40,7 @@ function mulNum(q, w) {
 function divNum(s) {
     return new Promise((resolve) => {
         setTimeout(() => {
-            console.log("Div = ", s / s);
+            resolve(s / s);
         }, 500);
     });
 }
@@ -50,6 +50,9 @@ async function MainFun() {
         const add = await addNum(10, 10);
         const mul = await mulNum(add, 10);
         const div = await divNum(mul, 10);
+        console.log("Addition = ", add);
+        console.log("Multiplication = ", mul);
+        console.log("Division = ", div);
 
         console.log("End the MAin function ");
     } catch (err) {
